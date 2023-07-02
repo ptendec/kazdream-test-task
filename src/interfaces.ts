@@ -6,3 +6,8 @@ export interface User {
   gender: string
   position: string
 }
+
+export interface UserContext {
+  users: User[]
+  deleteUser: (id: number) => void
+}

@@ -1,5 +1,6 @@
-import { FC, Fragment, useState } from 'react'
-import { User } from '../../interfaces'
+import { FC, Fragment, useContext, useState } from 'react'
+import { Context } from '../../App'
+import { User, UserContext } from '../../interfaces'
 
 interface Props {
   user: User
@@ -8,8 +9,10 @@ interface Props {
 export const TableRecord: FC<Props> = ({ user }) => {
   const [activeUserId, setActiveUserId] = useState<number | null>(null)
 
-  const toggleAccordion = (userId: number) => {
-    setActiveUserId(prevId => (prevId === userId ? null : userId))
+  const { deleteUser } = useContext(Context) as UserContext
+
+  const toggleAccordion = (id: number) => {
+    setActiveUserId(prevId => (prevId === id ? null : id))
   }
 
   return (
@@ -36,6 +39,7 @@ export const TableRecord: FC<Props> = ({ user }) => {
               <div>
                 <strong>Position:</strong> {user.position}
               </div>
+              <button onClick={() => deleteUser(user.id)}>Delete User</button>
             </td>
           </tr>
         )}

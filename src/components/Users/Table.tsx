@@ -1,12 +1,11 @@
-import { FC } from 'react'
-import { User } from '../../interfaces'
+import { FC, useContext } from 'react'
+import { Context } from '../../App'
+import { UserContext } from '../../interfaces'
 import { TableRecord } from './TableRecord'
 
-interface Props {
-  users: User[]
-}
+export const UserTable: FC = () => {
+  const { users } = useContext(Context) as UserContext
 
-export const UserTable: FC<Props> = ({ users }) => {
   return (
     <div className='user-table'>
       <table className='user-table__table'>
