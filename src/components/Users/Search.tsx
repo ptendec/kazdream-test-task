@@ -4,13 +4,13 @@ import { useDebounce } from '../../hooks/useDebounce'
 import { UserContext } from '../../interfaces'
 
 export const Search = () => {
-  const { doSearch } = useContext(Context) as UserContext
+  const { changeSearchText } = useContext(Context) as UserContext
 
   const [search, setSearch] = useState('')
   const debouncedSearch = useDebounce(search, 500)
 
   useEffect(() => {
-    doSearch(debouncedSearch)
+    changeSearchText(debouncedSearch)
   }, [debouncedSearch])
 
   return (

@@ -11,7 +11,7 @@ export interface UserContext {
   users: User[]
   deleteUser: (id: number) => void
   changeSortOption: (by: By) => void
-  doSearch: (search: string) => void
+  changeSearchText: (search: string) => void
 }
 
 export interface SortByOptions {
