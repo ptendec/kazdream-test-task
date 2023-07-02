@@ -10,4 +10,14 @@ export interface User {
 export interface UserContext {
   users: User[]
   deleteUser: (id: number) => void
+  changeSortOption: (by: By) => void
+  doSearch: (search: string) => void
 }
+
+export interface SortByOptions {
+  id: number
+  by: By
+  name: string
+}
+
+export type By = 'firstName' | 'lastName' | 'position' | 'No sort'
