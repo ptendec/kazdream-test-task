@@ -52,9 +52,7 @@ function App() {
   }
 
   const doSearch = (search: string) => {
-    setModifiedUsers(prevUsers =>
-      keepSortingAndSearch(search ? prevUsers : rootUsers, search, sortOption),
-    )
+    setModifiedUsers(keepSortingAndSearch(rootUsers, search, sortOption))
   }
 
   return (
